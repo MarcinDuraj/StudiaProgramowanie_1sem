@@ -16,6 +16,17 @@ void printEmployee(const string id[], const string name[], const double salary[]
     return;
 }
 
+string findEmloyeeWithLongestName(const string name[], size_t size)
+{
+    string longestName = name[0];
+    for (size_t i = 1; i < size; ++i)
+    {
+        if (longestName.length() < name[i].length())
+            longestName = name[i];
+    }
+    return longestName;
+}
+
 int main()
 {
     string id[] = { "E001", "E002", "E003" };
@@ -24,6 +35,7 @@ int main()
     size_t size = 3;
 
     printEmployee(id, name, salary, size);
+    cout << "Longest name is " << findEmloyeeWithLongestName(name, size) << endl;
 
     system("pause");
     return 0;
