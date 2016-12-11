@@ -1,0 +1,104 @@
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+const int n = 5;
+
+void print(int tab[n], int row)
+{
+	for (size_t i = 0; i < row; ++i)
+	{
+		cout << tab[i] << "\t";
+	}
+	cout << endl;
+}
+
+void print(int tab[n][n], int row, int col)
+{
+	for (size_t i = 0; i < row; ++i)
+	{
+		for (size_t j = 0; j < col; ++j)
+		{
+			cout << tab[i][j] << "\t";
+		}
+		cout << endl;
+	}
+}
+
+void print(double tab[n][n], int row, int col, int n)
+{
+	for (size_t i = 0; i < row; ++i)
+	{
+		for (size_t j = 0; j < col; ++j)
+		{
+			cout << tab[i][j] << "\t";
+		}
+		cout << endl;
+	}
+}
+
+void positiveOnly(const int source[], int target[], int n)
+{
+	for (size_t i = 0, j = 0; i < n; i++)
+	{
+		if (source[i] > 0)
+			target[j++]  = source[i];
+	}
+}
+
+
+int main()
+{
+	int a[n][n] = { 0 };
+	int b[n][n] = { 0 };
+	double c[5][5] = { 0 };
+	int d[n][n] = { 0 };
+	int e[n] = { 1,-2,2,3,3 };
+	int target[n] = { 0 };
+
+
+	for (size_t i = 0; i < n; ++i)
+	{
+		a[i][i] = 1;
+	}
+	print(a, n, n);
+	cout << "***********************" << endl;
+
+	int j = (n-1);
+	for (size_t i = 0; i < n; ++i)
+	{
+		b[i][j--] = 1;
+	}
+	print(b, n, n);
+	cout << "***********************" << endl;
+
+	for (size_t i = 0; i < 5; ++i)
+	{
+		for (size_t j = 0; j < 5; ++j)
+		{
+			c[i][j] = sin(i*j);
+		}
+		
+	}
+	print(c, n, n, n);
+	cout << "***********************" << endl;
+
+	for (size_t i = 0; i < n; ++i)
+	{
+		for (size_t j = 0; j < n; ++j)
+		{
+			d[i][j] = ((i+1) * pow(10, j));
+		}
+
+	}
+	print(d, n, n);
+	cout << "***********************" << endl;
+
+	positiveOnly(e, target, n);
+
+	print(target, n);
+
+
+	system("pause");
+}
